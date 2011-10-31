@@ -6,19 +6,16 @@ class Image(db.Document):
 	image_path = StringField()
 	#the code below
 
-		
-		
 class Message(db.Document):
 	message_from = ReferenceField('User')
 	message_to = ListField(ReferenceField('User'))
 	message_body = StringField(max_length = 2000)
 	#message_images = ListField(ReferenceField('Image'))
 	
-	
 # is a separate collection right for relationships?  Or should they be embedded documents?  Same with messages.  
 
 #Relationships get created, and referenced in the appropriate people.  If a relationship ends, it gets a stop_date and gets pulled out of the people. 
-#a search of relationships where x = person can yield all their out-of-date relatinships.
+#a search of relationships where x = person can yield all their out-of-date relationships.
 
 class Relationship(db.Document):
 	adopted_by = ReferenceField('User')
