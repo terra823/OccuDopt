@@ -1,15 +1,13 @@
-For debugging:
+Sketch of a social network for occupy wallstreet / everywhere sponsorship and adoption.  When spending time in several of the occupy sites, we noted that 
 
-from flask import Flask
-from flask import request, url_for, render_template
-from flaskext.mongoengine import MongoEngine
+*disconnects can occur between donations, comfort committee, and needs of occupiers
+*some occupiers wanted an "angel" to help them, while others didn't
+*groups (i.e. veterans for peace) wanted to know who was supporting their message in the field
+*occupiers wanted resources (information, support) from groups (veterans for peace)
+*many americans sympathetic to #OWS could not attend in person (kids, job, jail) but would like to help
+*not everyone who wants to help wants to donate to the central account
 
-app = Flask(__name__)
-app.config['MONGODB_DB'] = 'occudopt'
-db = MongoEngine(app)
+Thus, Lauren Slowik and Matthew Wilse proposed OccuDopt, a social network for #OWS that would bind occupiers with patrons.
 
-from occudopt.models import Relationship, User, Message, Image
 
-u0 = User(email = 'this@that.net')
-u1 = User(email = 'yo@mama.net')
-m = Message(message_from = u0, message_to = u1, message_body = "this be a test")
+
