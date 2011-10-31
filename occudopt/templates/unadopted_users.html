@@ -1,0 +1,13 @@
+<table border="1">
+	<tr><th>User</th><th>Tags</th><th>City</th><th>Philosophy</th></tr>
+	
+{% for user in users %}
+	<tr>
+  		<td>{{ user.email }}</td>
+  		<td>{% for tag in user.tags %}{{tag}},{% endfor %}</td>
+		<td>{{ user.primary_city }}</td>
+		<td>{{ user.philosophy }}</td>
+	</tr>
+{% endfor %}
+	
+</table>

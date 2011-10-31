@@ -1,0 +1,14 @@
+<table border="1">
+	<tr><th>User</th><th>Tags</th><th>City</th><th>Philosophy</th></tr>
+	
+{% for user in users %}
+	<tr>
+  		<td>{{ user.email }}</td>
+  		<td>{% for tag in user.tags %}{{tag}},{% endfor %}</td>
+		<td>{{ user.primary_city }}</td>
+		<td>{{ user.philosophy }}</td>
+		<td><img src= "http://localhost:5000/_uploads/photos/{{ user.profile_picture.image_path}}" height = 120, width = 120/></td>
+	</tr>
+{% endfor %}
+	
+</table>

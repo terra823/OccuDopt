@@ -1,0 +1,11 @@
+<!doctype html>
+	
+<form method="POST" action="" enctype=multipart/form-data>
+{{ form.email.label }} {{ form.email(size=20) }}</br>
+{{ form.first_name.label }} {{ form.first_name(size=20) }}</br>
+{{ form.last_name.label }} {{ form.last_name(size=40) }}</br>
+{{ form.password.label }} {{ form.password(size=40) }}</br>
+{{ form.philosophy.label}} {{form.philosophy(size=100) }}</br>
+A photo of you:<input type=file name=photo>
+<input type="submit" value="Post">
+</form>
