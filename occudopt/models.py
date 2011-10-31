@@ -34,7 +34,7 @@ class User(db.Document):
 	last_name = db.StringField(max_length = 50) 
 	password = db.StringField(max_length = 200)
 	philosophy = db.StringField(max_length = 1000)
-	tags = ListField(StringField(max_length=30))
+	tags = ListField(StringField(max_length=100))
 	is_group = db.BooleanField()
 	pictures = ListField(ReferenceField('Image'))
 	profile_picture = ReferenceField('Image')

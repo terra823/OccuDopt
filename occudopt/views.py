@@ -91,12 +91,19 @@ def user_add():
 		i.save()
 		#hash password stored in database so that it is not viewable by people in Romania
 		hashed = bcrypt.hashpw(request.form["password"], bcrypt.gensalt())
-		u = User(email = request.form["email"], first_name = request.form["first_name"], last_name =request.form["last_name"], password = hashed, authenticated = False)
+		u = User(	email = request.form["email"], 
+					first_name = request.form["first_name"], 
+					last_name =request.form["last_name"], 
+					password = hashed, 
+					authenticated = False,
+					philosophy = request.form['philosophy'],
+					tags = request.form['tags'].split(','),
+				)
 		u.profile_picture= i
 		u.save()
 		return "done:" + request.form["email"] + " " + request.form["first_name"]+ " " + request.form["last_name"] + " " + '/_uploads/photos/'+i.image_path
 	else:
-		return render_template('add.html', form=form)
+		return render_template('add.html', form=form, cities = OccupyCity.objects.all())
 
 @app.route('/photo/<email>')
 def photo_from_email(email):
