@@ -75,7 +75,7 @@ def index():
 		return "Welcome to OccuDopt.  <a href=" + url_for("login") + ">Log In</a>"
 	
 @app.route('/user/profile/<email>')
-	def user_profile(email):
+def user_profile(email):
 		u = User.objects(email = email)
 		return "okay"
 		#return render_template('user_profile.html', user = u)
