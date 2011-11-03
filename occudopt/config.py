@@ -1,7 +1,7 @@
 # Example configuration
 DEBUG = True
 #use admin
-#db.auth("boss", "1nch4rg3")
+#db.auth("retro", "4ct1v3")
 #use test
 #db.addUser("name","pass")
 #db.auth("")

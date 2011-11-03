@@ -76,9 +76,9 @@ def index():
 	
 @app.route('/user/profile/<email>')
 def user_profile(email):
-		u = User.objects(email = email)
-		return "okay"
-		#return render_template('user_profile.html', user = u)
+		u = User.objects(email = email)[0]
+		#return "okay"
+		return render_template('user_profile.html', user = u)
 		
 #TODO add check against existing email
 @app.route('/user/add/', methods=['GET', 'POST'])
