@@ -68,11 +68,18 @@ def list_unadopted_users():
 def index():
 	num_users = User.objects().count()
 	if current_user.is_authenticated(): 
-		user = str(current_user.email) 
+		user = str(current_user.first_name + " " + current_user.last_name) 
+		return '%d active users ' % num_users + ' ' + "</br>Welcome, " + user + "." + "</br><a href = " + url_for("logout") +">Log out</a>"
 	else: 
 		user = "anonymous"
-	return ('Found %d users ' % num_users + '</br>logged in?= ' + str(current_user.is_authenticated()) + ' ' + "</br>User = " + user)
-
+		return "Welcome to OccuDopt.  <a href=" + url_for("login") + ">Log In</a>"
+	
+@app.route('/user/profile/<email>')
+	def user_profile(email):
+		u = User.objects(email = email)
+		return "okay"
+		#return render_template('user_profile.html', user = u)
+		
 #TODO add check against existing email
 @app.route('/user/add/', methods=['GET', 'POST'])
 def user_add():

@@ -1,5 +1,7 @@
+<!doctype html>
+<body>
 <table border="1">
-	<tr><th>User</th><th>Tags</th><th>City</th><th>Philosophy</th></tr>
+	<tr><th>User</th><th>Tags</th><th>City</th><th>Philosophy</th><th>Profile Pic</th></tr>
 	
 {% for user in users %}
 	<tr>
@@ -12,3 +14,14 @@
 {% endfor %}
 	
 </table>
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+   <script>
+$(document).ready(function(){
+   alert("Thanks for visiting!");
+ });
+</script>
+</body>
